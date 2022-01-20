@@ -1,0 +1,105 @@
+/* nunito-300 - latin_cyrillic */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''),
+        url('../fonts/nunito-v20-latin_cyrillic-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('../fonts/nunito-v20-latin_cyrillic-300.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* nunito-600 - latin_cyrillic */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    src: local(''),
+        url('../fonts/nunito-v20-latin_cyrillic-600.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('../fonts/nunito-v20-latin_cyrillic-600.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* nunito-900 - latin_cyrillic */
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 900;
+    src: local(''),
+        url('../fonts/nunito-v20-latin_cyrillic-900.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('../fonts/nunito-v20-latin_cyrillic-900.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: Nunito, sans-serif;
+    background-color: #ffffff;
+    line-height: 1.5;
+    font-size: 18px;
+    color: #434343;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+.header {
+    background-color: #296C82;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+.header__container {
+    padding: 0 30px;
+    max-width: 1140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.header__title {
+    color: #FFFFFF;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.main {
+    padding: 60px 30px;
+}
+
+.main__title {
+    font-weight: 300;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main__box {
+    margin: 0 auto;
+    max-width: 800px;
+    height: 540px;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+.main__subtitle {
+    font-weight: 300;
+    font-size: 26px;
+}
+
+.main__btn {}
