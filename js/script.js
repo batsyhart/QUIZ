@@ -5,7 +5,7 @@ const selection = document.querySelector('.selection');
 const title = document.querySelector('.main__title');
 
 const getData = () => {
-    return fetch('db/quiz_db.json').then(response => response.json())
+    return fetch('db/quiz_db.json').then(response => response.json());
 };
 
 
@@ -33,7 +33,7 @@ const hideElem = (elem, cb) => {
 
     const animation = () => {
         opacity -= 0.05;
-        elem.style.opacity ='opacity';
+        elem.style.opacity = opacity;
 
         if (opacity > 0) {
             requestAnimationFrame(animation);
@@ -44,47 +44,6 @@ const hideElem = (elem, cb) => {
     };
 
     requestAnimationFrame(animation);
-};
-
-//функция ниже генерирует темы квизов//
-const renderTheme = (themes) => {
-
-    const list = document.querySelector('.selection__list');
-    list.textContent = '';
-
-    const buttons = [];
-
-    for (let i=0; i < themes.length; i += 1) {
-        const li = document.createElement('li');
-        li.className = 'selection__item';
-
-        const button = document.createElement('button');
-        button.className = 'selection__theme';
-        button.dataset.id = themes[i].id;
-        button.textContent = themes[i].theme;
-        li.append(button);
-
-        const result = loadResult(themes[i].id);
-
-        if (result) {
-            const p = document.createElement('p');
-
-        p.innerHTML = `
-            <p class="selection__result">
-                <span class="selection__result-ratio">${result}/${themes[i].list.length}</span>
-                <span class="selection__result-text">Последний результат</span>
-            </p>
-        `;
-        li.append(p);
-        }
-
-
-        list.append(li);
-
-        buttons.push(button);
-    }
-
-    return buttons;
 };
 
 // функция чтобы перемешать варианты ответов
@@ -105,6 +64,7 @@ const saveResult = (result, id) => {
 
 // возвращаем результат квиза
 const loadResult = id => localStorage.getItem(id);
+
 
 // функция чтобы сгенерировать ключи для правильных ответов
 const createKeyAnswers = data => {
@@ -148,6 +108,43 @@ const createAnswer = data => {
         labels,
         keys
     };
+};
+
+//функция ниже генерирует темы квизов//
+const renderTheme = (themes) => {
+
+    const list = document.querySelector('.selection__list');
+    list.textContent = '';
+
+    const buttons = [];
+
+    for (let i=0; i < themes.length; i += 1) {
+        const li = document.createElement('li');
+        li.className = 'selection__item';
+
+        const button = document.createElement('button');
+        button.className = 'selection__theme';
+        button.dataset.id = themes[i].id;
+        button.textContent = themes[i].theme;
+        li.append(button);
+
+        const result = loadResult(themes[i].id);
+
+        if (result) {
+            const p = document.createElement('p');
+            p.className = 'selection__result';
+        p.innerHTML = `
+                <span class="selection__result-ratio">${result}/${themes[i].list.length}</span>
+                <span class="selection__result-text">Последний результат</span>
+        `;
+        li.append(p);
+        }
+        list.append(li);
+
+        buttons.push(button);
+    }
+
+    return buttons;
 };
 
 // функция высчитывает и передает результат квиза
